@@ -19,8 +19,8 @@
         function userLogin() {
             let usrName = document.getElementById("userName").value.toString();
             let usrPassword = document.getElementById("userPassword").value.toString();
+
             writeConsole(usrName + ' ' + usrPassword);
-            // writeConsole(userPassword);
         }
     </script>
 </head>
@@ -48,7 +48,7 @@
         <form id="loginForm" onsubmit="return false" action="##" method="post">
             <!-- <p><label for="txtSysName">System Name :</label><input type="text" id="txtSysName" size="55"></p> -->
             <p><label for="userName">User Name :</label><input type="text" id="userName" size="55"></p>
-            <p><label for="userPassword">Password :</label><input type="text" id="userPassword" size="55"></p><br>
+            <p><label for="userPassword">Password :</label><input type="password" id="userPassword" size="55"></p><br>
             <p><input type="button" form="loginForm" onClick="userLogin()" value="User Login" /></p>
         </form>
     </div>
