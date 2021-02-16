@@ -4,22 +4,59 @@
 <head>
     <meta charset="utf-8">
     <title>个人练习 FOR HMTL</title>
+    <style>
+        label {
+            width: 150px;
+            display: inline-block;
+        }
+    </style>
+
+    <script type="text/javascript">
+        function writeConsole(logString) {
+            document.getElementById('conTxtArea').value = logString;
+        }
+
+        function userLogin() {
+            let usrName = document.getElementById("userName").value.toString();
+            let usrPassword = document.getElementById("userPassword").value.toString();
+            writeConsole(usrName + ' ' + usrPassword);
+            // writeConsole(userPassword);
+        }
+    </script>
 </head>
 
 <body>
-    <a href="https://www.baidu.com">www.baidu.com</a>
+    <!-- <a href="https://www.baidu.com">www.baidu.com</a>
     <h1>First level heading</h1>
     <p>这是一个段落1</p>
     <hr>
     <p>这是一个段落2</p>
     <hr>
     <p>这是一个段落3</p>
-    <h1>Second level heading</h2>
-        <p>这个<br>段落<br>演示了分行的效果</p>
-        <h1>Third level heading</h3>
+    <h1>Second level heading</h1>
+    <p>这个<br>段落<br>演示了分行的效果</p>
+    <h1>Third level heading</h1>
+    <b>这个文本是加粗的</b>
+    <em><br>定义着重文字</em>
+    <i>斜体字</i><br>
+    <small>小号字</small><br>
+    <strong>加重语气</strong><br>
+    <br /> -->
 
-            <b>这个文本是加粗的</b>
-            <br />
+    <div>
+        <h2>Button Test</h2>
+        <form id="loginForm" onsubmit="return false" action="##" method="post">
+            <!-- <p><label for="txtSysName">System Name :</label><input type="text" id="txtSysName" size="55"></p> -->
+            <p><label for="userName">User Name :</label><input type="text" id="userName" size="55"></p>
+            <p><label for="userPassword">Password :</label><input type="text" id="userPassword" size="55"></p><br>
+            <p><input type="button" form="loginForm" onClick="userLogin()" value="User Login" /></p>
+        </form>
+    </div>
+
+    <div id="console-div">
+        <h2>Console</h2>
+        <textarea cols="100" rows="8" maxlength="100" id="conTxtArea"></textarea>
+    </div>
 </body>
 
 </html>

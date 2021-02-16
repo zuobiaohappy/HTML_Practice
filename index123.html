@@ -6,10 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         label {
-
             width: 150px;
             display: inline-block;
-
         }
     </style>
     <script type="text/javascript">
@@ -33,13 +31,13 @@
             postPath = '/tag/read';
 
             //format the string as jsonF
-            for (let index = 0; index < 10; index++) {//read tag name from  DOM id
+            for (let index = 0; index < 10; index++) { //read tag name from  DOM id
                 let nameString = 'txtTagName' + index.toString();
                 let valueString = 'txtTagValue' + index.toString();
                 let nameArrTemp = document.getElementById(nameString).value;
-                if (nameArrTemp !== '') {//collect non empty text from html
+                if (nameArrTemp !== '') { //collect non empty text from html
                     tagNameArray.push(nameArrTemp);
-                    tagStr.push(valueString);//save the tag value DOM id which will be modified later
+                    tagStr.push(valueString); //save the tag value DOM id which will be modified later
 
                 }
             }
@@ -49,6 +47,7 @@
             });
             tagAccess();
         }
+
         function tagWrite() {
             postPath = '/tag/write';
             let writeString = [];
@@ -72,11 +71,12 @@
             });
             tagAccess();
         }
-        function tagAccess() {//post data to RestAPI and receive response data , write data to DOM
+
+        function tagAccess() { //post data to RestAPI and receive response data , write data to DOM
             //Write log to the console
 
-            logString = 'Post raw data:' + '\r\n' + 'Access Method:Post' + '\r\n' + 'Content-type:application/json;charset=utf-8' + '\r\n'
-                + 'Path:http://localhost:4000' + postPath + '\r\n' + 'Data:' + postData;
+            logString = 'Post raw data:' + '\r\n' + 'Access Method:Post' + '\r\n' + 'Content-type:application/json;charset=utf-8' + '\r\n' +
+                'Path:http://localhost:4000' + postPath + '\r\n' + 'Data:' + postData;
             writeConsole(logString);
 
 
@@ -84,7 +84,7 @@
             xmlHttp.open('POST', postPath, true);
             xmlHttp.setRequestHeader('Content-type', 'application/json;charset=utf-8');
             xmlHttp.send(postData);
-            xmlHttp.onreadystatechange = function () { //Call a function when the state changes.
+            xmlHttp.onreadystatechange = function() { //Call a function when the state changes.
                 if (xmlHttp.readyState == XMLHttpRequest.DONE && xmlHttp.status ==
                     200) { //xmlHttp.readyState == 4 equals XMLHttpRequest.DONE
                     let responseText = xmlHttp.responseText; //return result
@@ -132,6 +132,7 @@
             }
 
         }
+
         function alarmAccess() {
             let sysName = document.getElementById('txtSysName').value;
             let filterStr = document.getElementById('txtFilter').value;
@@ -143,14 +144,14 @@
             alarmReadObj.LanguageId = langID;
             postData = JSON.stringify(alarmReadObj);
             //Write log to the console
-            logString = 'Post raw data:' + '\r\n' + 'Access Method:Post' + '\r\n' + 'Content-type:application/json;charset=utf-8' + '\r\n'
-                + 'Path:http://localhost:4000' + postPath + '\r\n' + 'Data:' + postData;
+            logString = 'Post raw data:' + '\r\n' + 'Access Method:Post' + '\r\n' + 'Content-type:application/json;charset=utf-8' + '\r\n' +
+                'Path:http://localhost:4000' + postPath + '\r\n' + 'Data:' + postData;
             writeConsole(logString);
             //send post json -read alarm
             xmlHttp.open('POST', postPath, true);
             xmlHttp.setRequestHeader('Content-type', 'application/json;charset=utf-8');
             xmlHttp.send(postData);
-            xmlHttp.onreadystatechange = function () { //Call a function when the state changes.
+            xmlHttp.onreadystatechange = function() { //Call a function when the state changes.
                 if (xmlHttp.readyState == XMLHttpRequest.DONE && xmlHttp.status ==
                     200) { //xmlHttp.readyState == 4 equals XMLHttpRequest.DONE
                     let responseText = xmlHttp.responseText; //return result
@@ -171,7 +172,6 @@
                 }
             }
         }
-
     </script>
     <title>Rest API Test</title>
     <link rel="shortcut icon" href="#" />
@@ -184,39 +184,28 @@
     <div id="tagAccessForm-div">
         <h2>Tag Access</h2>
         <form id="tagAccessForm" onsubmit="return false" action="##" method="post">
-            <p><input type="button" form="tagAccessForm" onClick="tagRead()" value="Read Submit" />
-                &nbsp; &nbsp;
+            <p><input type="button" form="tagAccessForm" onClick="tagRead()" value="Read Submit" /> &nbsp; &nbsp;
                 <input type="button" form="tagAccessForm" onClick="tagWrite()" value="Write Submit" />
             </p>
-            <p><label for="txtTagName0">Tag Name 01 :</label><input type="text" id="txtTagName0" size="15"
-                    placeholder="HMI_Tag_1" />
+            <p><label for="txtTagName0">Tag Name 01 :</label><input type="text" id="txtTagName0" size="15" placeholder="HMI_Tag_1" />
                 <label for="txtTagValue0">Tag Value 01 :</label><input type="text" id="txtTagValue0" size="15" /></p>
-            <p><label for="txtTagName1">Tag Name 02 :</label><input type="text" id="txtTagName1" size="15"
-                    placeholder="HMI_Tag_2" />
+            <p><label for="txtTagName1">Tag Name 02 :</label><input type="text" id="txtTagName1" size="15" placeholder="HMI_Tag_2" />
                 <label for="txtTagValue1">Tag Value 02 :</label><input type="text" id="txtTagValue1" size="15" /></p>
-            <p><label for="txtTagName2">Tag Name 03 :</label><input type="text" id="txtTagName2" size="15"
-                    placeholder="HMI_Tag_3" />
+            <p><label for="txtTagName2">Tag Name 03 :</label><input type="text" id="txtTagName2" size="15" placeholder="HMI_Tag_3" />
                 <label for="txtTagValue2">Tag Value 03 :</label><input type="text" id="txtTagValue2" size="15" /></p>
-            <p><label for="txtTagName3">Tag Name 04 :</label><input type="text" id="txtTagName3" size="15"
-                    placeholder="HMI_Tag_4" />
+            <p><label for="txtTagName3">Tag Name 04 :</label><input type="text" id="txtTagName3" size="15" placeholder="HMI_Tag_4" />
                 <label for="txtTagValue3">Tag Value 04 :</label><input type="text" id="txtTagValue3" size="15" /></p>
-            <p><label for="txtTagName4">Tag Name 05 :</label><input type="text" id="txtTagName4" size="15"
-                    placeholder="HMI_Tag_5" />
+            <p><label for="txtTagName4">Tag Name 05 :</label><input type="text" id="txtTagName4" size="15" placeholder="HMI_Tag_5" />
                 <label for="txtTagValue4">Tag Value 05 :</label><input type="text" id="txtTagValue4" size="15" /></p>
-            <p><label for="txtTagName5">Tag Name 06 :</label><input type="text" id="txtTagName5" size="15"
-                    placeholder="HMI_Tag_6" />
+            <p><label for="txtTagName5">Tag Name 06 :</label><input type="text" id="txtTagName5" size="15" placeholder="HMI_Tag_6" />
                 <label for="txtTagValue5">Tag Value 06 :</label><input type="text" id="txtTagValue5" size="15" /></p>
-            <p><label for="txtTagName6">Tag Name 07 :</label><input type="text" id="txtTagName6" size="15"
-                    placeholder="HMI_Tag_7" />
+            <p><label for="txtTagName6">Tag Name 07 :</label><input type="text" id="txtTagName6" size="15" placeholder="HMI_Tag_7" />
                 <label for="txtTagValue6">Tag Value 07 :</label><input type="text" id="txtTagValue6" size="15" /></p>
-            <p><label for="txtTagName7">Tag Name 08 :</label><input type="text" id="txtTagName7" size="15"
-                    placeholder="HMI_Tag_8" />
+            <p><label for="txtTagName7">Tag Name 08 :</label><input type="text" id="txtTagName7" size="15" placeholder="HMI_Tag_8" />
                 <label for="txtTagValue7">Tag Value 08 :</label><input type="text" id="txtTagValue7" size="15" /></p>
-            <p><label for="txtTagName8">Tag Name 09 :</label><input type="text" id="txtTagName8" size="15"
-                    placeholder="HMI_Tag_9" />
+            <p><label for="txtTagName8">Tag Name 09 :</label><input type="text" id="txtTagName8" size="15" placeholder="HMI_Tag_9" />
                 <label for="txtTagValue8">Tag Value 09 :</label><input type="text" id="txtTagValue8" size="15" /></p>
-            <p><label for="txtTagName9">Tag Name 10 :</label><input type="text" id="txtTagName9" size="15"
-                    placeholder="HMI_Tag_10" />
+            <p><label for="txtTagName9">Tag Name 10 :</label><input type="text" id="txtTagName9" size="15" placeholder="HMI_Tag_10" />
                 <label for="txtTagValue9">Tag Value 10 :</label><input type="text" id="txtTagValue9" size="15" /></p>
 
 
@@ -227,14 +216,12 @@
         <h2>Alarm Read</h2>
         <p></p><input type="button" id="button" value="Alarm Submit" onClick="alarmAccess()"></p>
 
-        <p><label for="txtSysName">System Name :</label><input type="text" id="txtSysName" size="15" />
+        <p><label for="txtSysName">System Name :</label><input type="text" id="txtSysName" size="25" />
         </p>
-        <p><label for="txtLangID">Language ID :</label><input type="text" id="txtLangID" size="15"
-                placeholder="e.g. 1033 for English" /></p>
-        <p><label for="txtFilter">Filter :</label><input type="text" id="txtFilter" size='40'
-                placeholder="e.g. AlarmClassName='Alarm'"></input></p>
-        <p><label for="alarmInfo">Alarms :</label><textarea cols="100" rows="4" maxlength="100"
-                id="alarmInfo"></textarea>
+        <p><label for="txtLangID">Language ID :</label><input type="text" id="txtLangID" size="15" placeholder="e.g. 1033 for English" /></p>
+        <p><label for="txtFilter">Filter :</label><input type="text" id="txtFilter" size='40' placeholder="e.g. AlarmClassName='Alarm'"></input>
+        </p>
+        <p><label for="alarmInfo">Alarms :</label><textarea cols="100" rows="4" maxlength="100" id="alarmInfo"></textarea>
             <hr>
     </div>
 
