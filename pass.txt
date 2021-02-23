@@ -1,0 +1,4 @@
+{"admin":{"Password":"$2a$10$A2IMQWqHFzA9lnSAyTd/e.IKHARq7t.n0D0g8Zfm6wT8fZmU487ia","Authentication":"adminUser"}
+,"zuobiao":{"Password":"$2a$10$Pf16uo00zKUyI0Gn8JmtUO8dAigR04.R4ci/YajfbmKlq.Z7Haw32","Authentication":"normalUser"}
+,"zuobiao1":{"Password":"$2a$10$u4F5tI6WNwlEAOw3Y4wQqetCp/xcoTZXEAcpNjlh5ns2nW4pQI0v.","Authentication":"normalUser"}
+,"zuobiao2":{"Password":"$2a$10$toN63gaRt1tu37srlkYTQ.qG0FCl2WSfweb/x9ufPcRILEAzWe28e","Authentication":"normalUser"}}
