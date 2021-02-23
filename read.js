@@ -4,11 +4,10 @@ var fs = require('fs');
 var currentUser = "admin";
 var currentUserPasswd = "siemens123";
 var auth = 'adminUser';
-
-//var userRequestString = '{"Type":"AddUser","Username":"zuobiao2","Password":"123456"}';
-//var userRequestString = '{"Type":"RemoveUser","Username":"zuobiao3"}';
-//var userRequestString = '{"Type":"ChangePassword","Username":"zuobiao","Password":"1231231","NewPassword":"123123"}';
-var userRequestString = '{"Type":"ChangeUserAuthentication","Username":"zuobiao","Password":"123123","OldAuthentication":"normalUser","NewAuthentication":"adminUser"}';
+//var userRequestString = '{"Type":"AddUser","Username":"zuobiao1","Password":"123456"}';
+//var userRequestString = '{"Type":"RemoveUser","Username":"zuobiao1"}';
+//var userRequestString = '{"Type":"ChangePassword","Username":"zuobiao","Password":"1234561","NewPassword":"123456"}';
+var userRequestString = '{"Type":"ChangeUserAuthentication","Username":"zuobiao","Password":"123456","NewAuthentication":"adminUser"}';
 
 if (adminAuthenticationChecker(currentUser, currentUserPasswd)) {
     var JsonString = JSON.parse(userRequestString);
